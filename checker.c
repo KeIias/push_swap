@@ -39,22 +39,6 @@ static int		check_args(int ac, char **av)
 	return (i);
 }
 
-void	print_list(t_dlist *beg)
-{
-	t_dlist *lst;
-
-	if (ft_lstlen(beg) < 1)
-		return ;
-	lst = beg;
-	while (lst->next != NULL)
-	{
-		ft_putnbr(lst->value);
-		ft_putchar(' ');
-		lst = lst->next;
-	}
-	ft_putnbr(lst->value);
-}
-
 int				main(int ac, char **av)
 {
 	int		i;
@@ -71,11 +55,25 @@ int				main(int ac, char **av)
 	i = 1;
 	while (++i < ac)
 		ft_lst_push_back(&beg_a, ft_atoi(av[i]));
-	print_list(beg_a);
-	//push(&beg_a, &beg_b);
+	ft_lst_print(beg_a);
+	push(&beg_a, &beg_b);
+	rotate(&beg_a);
+	push(&beg_a, &beg_b);
+	rotate(&beg_a);
+	rotate(&beg_a);
+	rotate(&beg_a);
+	push(&beg_a, &beg_b);
+	rotate(&beg_a);
+	rotate(&beg_a);
+	rotate(&beg_a);
+	swap(&beg_a);
+	reverse_rotate(&beg_a);
+	push(&beg_b, &beg_a);
+	push(&beg_b, &beg_a);
+	push(&beg_b, &beg_a);
 	ft_putchar('\n');
-	print_list(beg_a);
+	ft_lst_print(beg_a);
 	ft_putchar('\n');
-	print_list(beg_b);
+	ft_lst_print(beg_b);
 	//apply_commands(beg_a, beg_b);
 }
