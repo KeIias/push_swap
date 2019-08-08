@@ -18,23 +18,6 @@ int		main(int ac, char **av)
 		ft_lst_push_back(&beg_a, ft_atoi(av[i]));
 	ft_lst_print(beg_a);
 	push(&beg_a, &beg_b);
-	rotate(&beg_a);
-	push(&beg_a, &beg_b);
-	rotate(&beg_a);
-	rotate(&beg_a);
-	rotate(&beg_a);
-	push(&beg_a, &beg_b);
-	rotate(&beg_a);
-	rotate(&beg_a);
-	rotate(&beg_a);
-	swap(&beg_a);
-	reverse_rotate(&beg_a);
-	push(&beg_b, &beg_a);
-	push(&beg_b, &beg_a);
-	push(&beg_b, &beg_a);
-	ft_putchar('\n');
 	ft_lst_print(beg_a);
-	ft_putchar('\n');
-	ft_lst_print(beg_b);
 	//apply_commands(beg_a, beg_b);
 }

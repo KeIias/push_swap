@@ -38,3 +38,31 @@ int		check_args(int ac, char **av)
 	return (i);
 }
 
+int		is_sorted(t_dlist *beg)
+{
+	t_dlist *tmp;
+
+	tmp = beg;
+	while (tmp->next != NULL)
+	{
+		if (tmp->value > tmp->next->value)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+int		is_reverse_sorted(t_dlist *beg)
+{
+	t_dlist *tmp;
+
+	tmp = beg;
+	while (tmp->next != NULL)
+	{
+		if (tmp->value < tmp->next->value)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
