@@ -1,5 +1,10 @@
 #include "push_swap.h"
 
+void	apply_commands(t_dlist **beg_a, t_dlist **beg_b)
+{
+	
+}
+
 int		main(int ac, char **av)
 {
 	int		i;
@@ -17,7 +22,5 @@ int		main(int ac, char **av)
 	while (++i < ac)
 		ft_lst_push_back(&beg_a, ft_atoi(av[i]));
 	ft_lst_print(beg_a);
-	push(&beg_a, &beg_b);
-	ft_lst_print(beg_a);
-	//apply_commands(beg_a, beg_b);
+	apply_commands(&beg_a, &beg_b);
 }
