@@ -3,14 +3,15 @@
 
 # include "libft/libft.h"
 
-void	swap(t_dlist **beg);
-void	push(t_dlist **from, t_dlist **to);
-void	rotate(t_dlist **beg);
-void	reverse_rotate(t_dlist **beg);
+void	swap(t_dlist **beg, t_dlist **beg_ins, int ins);
+void	push(t_dlist **from, t_dlist **to, t_dlist **beg_ins, int ins);
+void	rotate(t_dlist **beg, t_dlist **beg_ins, int ins);
+void	reverse_rotate(t_dlist **beg, t_dlist **beg_ins, int ins);
 int		check_word(char *str);
 int		check_args(int ac, char **av);
 int		is_sorted(t_dlist *beg);
 int		is_reverse_sorted(t_dlist *beg);
+void	print_ins(t_dlist *beg_ins);
 
 # define P_A 1
 # define P_B 2

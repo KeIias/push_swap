@@ -66,3 +66,24 @@ int		is_reverse_sorted(t_dlist *beg)
 	return (1);
 }
 
+void	print_ins(t_dlist *beg_ins)
+{
+	t_dlist *tmp;
+
+	tmp = beg_ins;
+	while (tmp)
+	{
+		tmp->value == 1 ? ft_putendl("pa") : 0;
+		tmp->value == 2 ? ft_putendl("pb") : 0;
+		tmp->value == 3 ? ft_putendl("sa") : 0;
+		tmp->value == 4 ? ft_putendl("sb") : 0;
+		tmp->value == 5 ? ft_putendl("ra") : 0;
+		tmp->value == 6 ? ft_putendl("rb") : 0;
+		tmp->value == 7 ? ft_putendl("rra") : 0;
+		tmp->value == 8 ? ft_putendl("rrb") : 0;
+		tmp->value == 9 ? ft_putendl("ss") : 0;
+		tmp->value == 10 ? ft_putendl("rr") : 0;
+		tmp->value == 11 ? ft_putendl("rrr") : 0;
+		tmp = tmp->next;
+	}
+}

@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	push(t_dlist **from, t_dlist **to)
+void	push(t_dlist **from, t_dlist **to, t_dlist **beg_ins, int ins)
 {
 	t_dlist *tmp;
 
@@ -9,19 +9,21 @@ void	push(t_dlist **from, t_dlist **to)
 		tmp = *from;
 		ft_lst_push_front(&*to, tmp->value);
 		*from = tmp->next;
+		ft_lst_push_front(beg_ins, ins);
 	}
 }
 
-void	swap(t_dlist **beg)
+void	swap(t_dlist **beg, t_dlist **beg_ins, int ins)
 {
 	t_dlist	*tmp;
 
 	tmp = *beg;
 	if (ft_lstlen(tmp) >= 2)
 		ft_swap(&tmp->value, &tmp->next->value);
+	ft_lst_push_front(beg_ins, ins);
 }
 
-void	rotate(t_dlist **beg)
+void	rotate(t_dlist **beg, t_dlist **beg_ins, int ins)
 {
 	t_dlist *tmp;
 
@@ -35,9 +37,10 @@ void	rotate(t_dlist **beg)
 		*beg = tmp->next;
 		tmp->next = NULL;
 	}
+	ft_lst_push_front(beg_ins, ins);
 }
 
-void	reverse_rotate(t_dlist **beg)
+void	reverse_rotate(t_dlist **beg, t_dlist **beg_ins, int ins)
 {
 	t_dlist *tmp;
 
@@ -52,4 +55,5 @@ void	reverse_rotate(t_dlist **beg)
 			tmp = tmp->next;
 		tmp->next = NULL;
 	}
+	ft_lst_push_front(beg_ins, ins);
 }
