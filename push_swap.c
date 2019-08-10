@@ -47,6 +47,36 @@ void	separate_in_two(t_dlist **beg_a, t_dlist **beg_b, t_dlist **beg_ins)
 	}
 }
 
+int		get_first_one(t_dlist **beg_a, int mask)
+{
+	t_dlist *tmp;
+
+	tmp = *beg_a;
+	while (tmp)
+	{
+		if (tmp->value & mask)
+			return (tmp->value);
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
+void	radix(t_dlist **beg_a, t_dlist **beg_b, t_dlist **beg_ins)
+{
+	int mask;
+	int first_one;
+
+	mask = 1;
+	while (!is_sorted(*beg_a) || ft_lstlen(*beg_b) != 0)
+	{
+		if ((first_one = get_first_one(beg_a, mask)) != 0)
+		{
+
+		}
+		mask *= 2;
+	}
+}
+
 int		main(int ac, char **av)
 {
 	int		i;
