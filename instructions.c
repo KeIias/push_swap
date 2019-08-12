@@ -9,7 +9,7 @@ void	push(t_dlist **from, t_dlist **to, t_dlist **beg_ins, int ins)
 		tmp = *from;
 		ft_lst_push_front(&*to, tmp->value);
 		*from = tmp->next;
-		ft_lst_push_front(beg_ins, ins);
+		ft_lst_push_back(beg_ins, ins);
 	}
 }
 
@@ -20,7 +20,7 @@ void	swap(t_dlist **beg, t_dlist **beg_ins, int ins)
 	tmp = *beg;
 	if (ft_lstlen(tmp) >= 2)
 		ft_swap(&tmp->value, &tmp->next->value);
-	ft_lst_push_front(beg_ins, ins);
+	ft_lst_push_back(beg_ins, ins);
 }
 
 void	rotate(t_dlist **beg, t_dlist **beg_ins, int ins)
@@ -37,7 +37,7 @@ void	rotate(t_dlist **beg, t_dlist **beg_ins, int ins)
 		*beg = tmp->next;
 		tmp->next = NULL;
 	}
-	ft_lst_push_front(beg_ins, ins);
+	ft_lst_push_back(beg_ins, ins);
 }
 
 void	reverse_rotate(t_dlist **beg, t_dlist **beg_ins, int ins)
@@ -55,5 +55,5 @@ void	reverse_rotate(t_dlist **beg, t_dlist **beg_ins, int ins)
 			tmp = tmp->next;
 		tmp->next = NULL;
 	}
-	ft_lst_push_front(beg_ins, ins);
+	ft_lst_push_back(beg_ins, ins);
 }
