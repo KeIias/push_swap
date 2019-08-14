@@ -57,3 +57,9 @@ void	reverse_rotate(t_dlist **beg, t_dlist **beg_ins, int ins)
 	}
 	ft_lst_push_back(beg_ins, ins);
 }
+
+void	push_all(t_dlist **from, t_dlist **to, t_dlist **beg_ins, int ins)
+{
+	while (ft_lstlen(*from) != 0)
+		push(from, to, beg_ins, ins);
+}
