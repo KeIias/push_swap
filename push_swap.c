@@ -83,8 +83,6 @@ void	radix(t_dlist **beg_a, t_dlist **beg_b, t_dlist **beg_ins)
 		{
 			while (are_zeros_left(beg_a, mask))
 			{
-				if (is_sorted(*beg_a) && is_reverse_sorted(*beg_b))
-					push_all(beg_b, beg_a, beg_ins, P_A);
 				if (is_sorted(*beg_a) && ft_lstlen(*beg_b) == 0)
 					break;
 				if (!((*beg_a)->value & mask))
@@ -118,6 +116,7 @@ int		main(int ac, char **av)
 	i = 1;
 	while (++i < ac)
 		ft_lst_push_back(&beg_a, ft_atoi(av[i]));
+	normalize(&beg_a);
 	radix(&beg_a, &beg_b, &beg_ins);
 	print_ins(beg_ins);
 }
