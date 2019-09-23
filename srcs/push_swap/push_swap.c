@@ -1,29 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/23 17:11:16 by algautie          #+#    #+#             */
+/*   Updated: 2019/09/23 17:11:17 by algautie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../includes/push_swap.h"
-
-int		get_mid(t_dlist *beg)
-{
-	t_dlist	*tmp;
-	int		len;
-	int		*tab;
-	int		ret;
-	int		i;
-
-	tmp = beg;
-	len = ft_lstlen(tmp);
-	if (len == 1)
-		return ((int)tmp->value);
-	tab = (int*)malloc(sizeof(int) * len);
-	i = -1;
-	while (++i < len)
-	{
-		tab[i] = tmp->value;
-		tmp = tmp->next;
-	}
-	ft_sort_integer_table(tab, len);
-	ret = tab[(len / 2)];
-	free(tab);
-	return (ret);
-}
 
 int		get_first_one(t_dlist **beg_a, int mask)
 {

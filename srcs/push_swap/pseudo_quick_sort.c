@@ -1,41 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   normalize.c                                        :+:      :+:    :+:   */
+/*   pseudo_quick_sort.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/23 17:11:30 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/23 17:11:31 by algautie         ###   ########.fr       */
+/*   Created: 2019/09/23 17:12:34 by algautie          #+#    #+#             */
+/*   Updated: 2019/09/23 17:23:55 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	normalize(t_dlist **beg)
+void	sort_three(t_dlist **beg, t_dlist **beg_ins)
 {
-	t_dlist	*tmp;
-	t_dlist	*tmp2;
-	int		i;
-	int		len;
+	t_dlist *tmp;
+	int a;
+	int b;
+	int c;
 
-	i = -1;
 	tmp = *beg;
-	len = ft_lstlen(tmp);
-	while (++i != len)
-	{
-		tmp = *beg;
-		while (tmp && tmp->info == 'n')
-			tmp = tmp->next;
-		tmp2 = tmp;
-		tmp = *beg;
-		while (tmp)
-		{
-			tmp = tmp->next;
-			if (tmp && tmp->info != 'n' && tmp->value < tmp2->value)
-				tmp2 = tmp;
-		}
-		tmp2->value = i;
-		tmp2->info = 'n';
-	}
+	a = tmp->value;
+	b = tmp->next->value;
+	c = tmp->next->next->value;
+	if (is_sorted(*beg))
+		return ;
+}
+
+void	pseudo_quick_sort(t_dlist **beg_a, t_dlist **beg_b, t_dlist **beg_ins)
+{
+	
 }
