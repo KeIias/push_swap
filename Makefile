@@ -6,7 +6,7 @@
 #    By: algautie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/16 15:08:42 by algautie          #+#    #+#              #
-#    Updated: 2019/09/23 14:49:20 by algautie         ###   ########.fr        #
+#    Updated: 2019/09/23 14:52:59 by algautie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,8 +25,8 @@ SRC_NAME_PS	=	checks.c \
 				normalize.c \
 				push_swap.c \
 
-SRC_PATH_CH	=	./sources/checker/
-SRC_PATH_PS	=	./sources/push_swap/
+SRC_PATH_CH	=	./srcs/checker/
+SRC_PATH_PS	=	./srcs/push_swap/
 
 OBJ_PATH_CH	=	./objs/checker/
 OBJ_PATH_PS	=	./objs/push_swap/

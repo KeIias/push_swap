@@ -15,24 +15,24 @@ void	apply_commands(t_dlist **beg_a, t_dlist **beg_b)
 			ch_swap(beg_a);
 			ch_swap(beg_b);
 		}
-		else if (ft_strcmp(line, "pa"))
+		else if (ft_strcmp(line, "pa") == 0)
 			ch_push(beg_b, beg_a);
-		else if (ft_strcmp(line, "pb"))
+		else if (ft_strcmp(line, "pb") == 0)
 			ch_push(beg_a, beg_b);
-		else if (ft_strcmp(line, "ra"))
+		else if (ft_strcmp(line, "ra") == 0)
 			ch_rotate(beg_a);
-		else if (ft_strcmp(line, "rb"))
+		else if (ft_strcmp(line, "rb") == 0)
 			ch_rotate(beg_b);
-		else if (ft_strcmp(line, "rr"))
+		else if (ft_strcmp(line, "rr") == 0)
 		{
 			ch_rotate(beg_a);
 			ch_rotate(beg_b);
 		}
-		else if (ft_strcmp(line, "rra"))
+		else if (ft_strcmp(line, "rra") == 0)
 			ch_reverse_rotate(beg_a);
-		else if (ft_strcmp(line, "rrb"))
+		else if (ft_strcmp(line, "rrb") == 0)
 			ch_reverse_rotate(beg_b);
-		else if (ft_strcmp(line, "rrr"))
+		else if (ft_strcmp(line, "rrr") == 0)
 		{
 			ch_reverse_rotate(beg_a);
 			ch_reverse_rotate(beg_b);
@@ -40,6 +40,7 @@ void	apply_commands(t_dlist **beg_a, t_dlist **beg_b)
 		else
 		{
 			write(2, "Error\n", 6);
+			get_next_line(0, NULL);
 			return ;
 		}
 	}
@@ -55,6 +56,8 @@ int		main(int ac, char **av)
 	t_dlist	*beg_a;
 	t_dlist	*beg_b;
 
+	if (ac == 1)
+		return (0);
 	if (!check_args(ac, av) || ac < 2)
 	{
 		write(2, "Error\n", 6);
@@ -65,6 +68,5 @@ int		main(int ac, char **av)
 	i = 1;
 	while (++i < ac)
 		ft_lst_push_back(&beg_a, ft_atoi(av[i]));
-	ft_lst_print(beg_a);
 	apply_commands(&beg_a, &beg_b);
 }

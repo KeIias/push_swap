@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 13:58:59 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/23 12:14:37 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/23 14:55:24 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,5 @@ void	ps_reverse_rotate(t_dlist **beg, t_dlist **beg_ins, int ins)
 void	push_all(t_dlist **from, t_dlist **to, t_dlist **beg_ins, int ins)
 {
 	while (ft_lstlen(*from) != 0)
-		push(from, to, beg_ins, ins);
+		ps_push(from, to, beg_ins, ins);
 }

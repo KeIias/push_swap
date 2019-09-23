@@ -1,7 +1,7 @@
 #ifndef PUSH_SWAP
 # define PUSH_SWAP
 
-# include "libft/libft.h"
+# include "../libft/libft.h"
 
 void	ps_swap(t_dlist **beg, t_dlist **beg_ins, int ins);
 void	ps_push(t_dlist **from, t_dlist **to, t_dlist **beg_ins, int ins);
@@ -17,6 +17,7 @@ int		is_sorted(t_dlist *beg);
 int		is_reverse_sorted(t_dlist *beg);
 void	print_ins(t_dlist *beg_ins);
 void	push_all(t_dlist **from, t_dlist **to, t_dlist ** beg_ins, int ins);
+void	normalize(t_dlist **beg);
 
 # define P_A 1
 # define P_B 2
