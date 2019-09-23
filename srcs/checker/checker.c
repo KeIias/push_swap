@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 void	apply_commands(t_dlist **beg_a, t_dlist **beg_b)
 {
@@ -7,35 +7,35 @@ void	apply_commands(t_dlist **beg_a, t_dlist **beg_b)
 	while (get_next_line(0, &line) == 1)
 	{
 		if (ft_strcmp(line, "sa") == 0)
-			swap(beg_a, NULL, S_A);
+			ch_swap(beg_a);
 		else if (ft_strcmp(line, "sb") == 0)
-			swap(beg_a, NULL, S_B);
+			ch_swap(beg_b);
 		else if (ft_strcmp(line, "ss") == 0)
 		{
-			swap(beg_a, NULL, S_A);
-			swap(beg_b, NULL, S_B);
+			ch_swap(beg_a);
+			ch_swap(beg_b);
 		}
 		else if (ft_strcmp(line, "pa"))
-			push(beg_b, beg_a, NULL, P_A);
+			ch_push(beg_b, beg_a);
 		else if (ft_strcmp(line, "pb"))
-			push(beg_a, beg_b, NULL, P_B);
+			ch_push(beg_a, beg_b);
 		else if (ft_strcmp(line, "ra"))
-			rotate(beg_a, NULL, R_A);
+			ch_rotate(beg_a);
 		else if (ft_strcmp(line, "rb"))
-			rotate(beg_b, NULL, R_B);
+			ch_rotate(beg_b);
 		else if (ft_strcmp(line, "rr"))
 		{
-			rotate(beg_a, NULL, R_A);
-			rotate(beg_b, NULL, R_B);
+			ch_rotate(beg_a);
+			ch_rotate(beg_b);
 		}
 		else if (ft_strcmp(line, "rra"))
-			reverse_rotate(beg_a, NULL, RR_A);
+			ch_reverse_rotate(beg_a);
 		else if (ft_strcmp(line, "rrb"))
-			reverse_rotate(beg_b, NULL, RR_B);
+			ch_reverse_rotate(beg_b);
 		else if (ft_strcmp(line, "rrr"))
 		{
-			reverse_rotate(beg_a, NULL, RR_A);
-			reverse_rotate(beg_b, NULL, RR_B);
+			ch_reverse_rotate(beg_a);
+			ch_reverse_rotate(beg_b);
 		}
 		else
 		{

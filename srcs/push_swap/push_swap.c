@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../../includes/push_swap.h"
 
 int		get_mid(t_dlist *beg)
 {
@@ -65,9 +65,9 @@ void	back_to_first(t_dlist **beg_a, t_dlist **beg_ins, int first_one)
 	while ((*beg_a)->value != first_one)
 	{
 		if (pos * 2 > ft_lstlen(*beg_a))
-			reverse_rotate(beg_a, beg_ins, RR_A);
+			ps_reverse_rotate(beg_a, beg_ins, RR_A);
 		else
-			rotate(beg_a, beg_ins, R_A);
+			ps_rotate(beg_a, beg_ins, R_A);
 	}
 }
 
@@ -86,9 +86,9 @@ void	radix(t_dlist **beg_a, t_dlist **beg_b, t_dlist **beg_ins)
 				if (is_sorted(*beg_a) && ft_lstlen(*beg_b) == 0)
 					break;
 				if (!((*beg_a)->value & mask))
-					push(beg_a, beg_b, beg_ins, P_B);
+					ps_push(beg_a, beg_b, beg_ins, P_B);
 				if ((*beg_a)->value & mask && are_zeros_left(beg_a, mask))
-					rotate(beg_a, beg_ins, R_A);
+					ps_rotate(beg_a, beg_ins, R_A);
 			}
 			if (!(is_sorted(*beg_a) && ft_lstlen(*beg_b) == 0))
 				back_to_first(beg_a, beg_ins, first_one);
