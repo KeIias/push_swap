@@ -18,6 +18,7 @@ int		is_reverse_sorted(t_dlist *beg);
 void	print_ins(t_dlist *beg_ins);
 void	push_all(t_dlist **from, t_dlist **to, t_dlist ** beg_ins, int ins);
 void	normalize(t_dlist **beg);
+void	pseudo_quick_sort(t_dlist **beg_a, t_dlist **beg_b, t_dlist **beg_ins);
 
 # define P_A 1
 # define P_B 2

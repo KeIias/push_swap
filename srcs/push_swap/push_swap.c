@@ -104,6 +104,7 @@ int		main(int ac, char **av)
 	while (++i < ac)
 		ft_lst_push_back(&beg_a, ft_atoi(av[i]));
 	normalize(&beg_a);
-	radix(&beg_a, &beg_b, &beg_ins);
+	//radix(&beg_a, &beg_b, &beg_ins);
+	pseudo_quick_sort(&beg_a, &beg_b, &beg_ins);
 	print_ins(beg_ins);
 }

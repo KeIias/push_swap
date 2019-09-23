@@ -24,6 +24,7 @@ SRC_NAME_PS	=	checks.c \
 				instructions.c \
 				normalize.c \
 				push_swap.c \
+				pseudo_quick_sort.c \
 
 SRC_PATH_CH	=	./srcs/checker/
 SRC_PATH_PS	=	./srcs/push_swap/
