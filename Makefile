@@ -6,7 +6,7 @@
 #    By: algautie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/16 15:08:42 by algautie          #+#    #+#              #
-#    Updated: 2019/09/24 11:24:57 by algautie         ###   ########.fr        #
+#    Updated: 2019/09/24 16:03:49 by algautie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,9 +50,6 @@ all: $(CH) $(PS)
 $(LIB):
 	@make -sC $(LIBFT_PATH) -j
 
-librm:
-	@make -sC $(LIBFT_PATH) fclean
-
 $(CH): $(LIB) $(OBJ_CH)
 	@$(CC) $(OBJ_CH) $(LIB) -o $(CH)
 
@@ -68,11 +65,13 @@ $(OBJ_PATH_PS)%.o: $(SRC_PATH_PS)%.c $(INC)
 	@$(CC) $(CFLAGS) -o $@ -c $<
 
 clean:
+	@make -sC $(LIBFT_PATH) clean
 	@rm -rf ./objs/
 
 fclean: clean
 	@rm -f $(CH) $(PS)
+	@rm -f $(LIBFT_PATH)$(LIBFT_NAME)
 
 re: fclean all
 
-.PHONY: all librm clean fclean re
+.PHONY: all clean fclean re
