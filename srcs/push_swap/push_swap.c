@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 17:11:16 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/24 13:29:57 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/24 17:37:30 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,8 @@ int		main(int ac, char **av)
 	normalize(&beg_a);
 	(ft_lstlen(beg_a) > 50) ? radix(&beg_a, &beg_b, &beg_ins)
 		: pseudo_quick_sort(&beg_a, &beg_b, &beg_ins);
-	optimize(beg_ins);
+	if (ft_lstlen(beg_ins) > 1)
+		optimize(beg_ins);
 	print_ins(beg_ins);
 	ft_lst_free(beg_a);
 	ft_lst_free(beg_b);

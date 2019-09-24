@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 17:11:30 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/24 10:56:50 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/24 17:33:48 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,31 @@ void	normalize(t_dlist **beg)
 	}
 }
 
+void	spread_optimize(t_dlist *beg_ins)
+{
+	t_dlist *tmp;
+	t_dlist *save;
+
+	tmp = beg_ins;
+	while (tmp->next)
+	{
+		if ((tmp->value == P_A || tmp->value == P_B) && tmp->next->value == -1)
+		{
+			save = tmp;
+			while (tmp->next && tmp->next->value == -1)
+				tmp = tmp->next;
+			if (tmp->next && ((save->value == P_A && tmp->next->value == P_B)
+					|| (save->value == P_B && tmp->next->value == P_A)))
+			{
+				tmp->next->value = -1;
+				save->value = -1;
+				tmp = beg_ins;
+			}
+		}
+		tmp = tmp->next;
+	}
+}
+
 void	optimize(t_dlist *beg_ins)
 {
 	t_dlist *tmp;
@@ -48,11 +73,7 @@ void	optimize(t_dlist *beg_ins)
 	while (tmp->next)
 	{
 		if ((tmp->value == P_A && tmp->next->value == P_B)
-			|| (tmp->value == P_B && tmp->next->value == P_A)
-			|| (tmp->value == R_A && tmp->next->value == RR_A)
-			|| (tmp->value == RR_A && tmp->next->value == R_A)
-			|| (tmp->value == R_B && tmp->next->value == RR_B)
-			|| (tmp->value == RR_B && tmp->next->value == R_B))
+			|| (tmp->value == P_B && tmp->next->value == P_A))
 		{
 			tmp->value = -1;
 			tmp->next->value = -1;
@@ -60,4 +81,5 @@ void	optimize(t_dlist *beg_ins)
 		}
 		tmp = tmp->next;
 	}
+	spread_optimize(beg_ins);
 }
