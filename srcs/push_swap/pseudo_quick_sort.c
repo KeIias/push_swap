@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 17:12:34 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/23 17:23:55 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/24 10:58:54 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	sort_three(t_dlist **beg, t_dlist **beg_ins)
 {
-	t_dlist *tmp;
-	int a;
-	int b;
-	int c;
+	t_dlist	*tmp;
+	int		a;
+	int		b;
+	int		c;
 
 	while (!(is_sorted(*beg)))
 	{
@@ -75,7 +75,7 @@ void	pseudo_quick_sort(t_dlist **beg_a, t_dlist **beg_b, t_dlist **beg_ins)
 				ps_reverse_rotate(beg_a, beg_ins, RR_A);
 			else
 				ps_rotate(beg_a, beg_ins, R_A);
-	}
+		}
 		ps_push(beg_a, beg_b, beg_ins, P_B);
 	}
 	sort_three(beg_a, beg_ins);

@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 17:11:16 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/24 10:41:05 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/24 10:59:26 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	radix(t_dlist **beg_a, t_dlist **beg_b, t_dlist **beg_ins)
 			while (are_zeros_left(beg_a, mask))
 			{
 				if (is_sorted(*beg_a) && ft_lstlen(*beg_b) == 0)
-					break;
+					break ;
 				if (!((*beg_a)->value & mask))
 					ps_push(beg_a, beg_b, beg_ins, P_B);
 				if ((*beg_a)->value & mask && are_zeros_left(beg_a, mask))
@@ -86,7 +86,7 @@ void	radix(t_dlist **beg_a, t_dlist **beg_b, t_dlist **beg_ins)
 }
 
 int		main(int ac, char **av)
-{ 
+{
 	int		i;
 	t_dlist	*beg_a;
 	t_dlist	*beg_b;
