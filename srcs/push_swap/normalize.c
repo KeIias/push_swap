@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 17:11:30 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/23 17:11:31 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/24 10:29:00 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,27 @@ void	normalize(t_dlist **beg)
 		}
 		tmp2->value = i;
 		tmp2->info = 'n';
+	}
+}
+
+void	optimize(t_dlist *beg_ins)
+{
+	t_dlist *tmp;
+
+	tmp = beg_ins;
+	while (tmp->next)
+	{
+		if ((tmp->value == P_A && tmp->next->value == P_B)
+			|| (tmp->value == P_B && tmp->next->value == P_A)
+			|| (tmp->value == R_A && tmp->next->value == RR_A)
+			|| (tmp->value == RR_A && tmp->next->value == R_A)
+			|| (tmp->value == R_B && tmp->next->value == RR_B)
+			|| (tmp->value == RR_B && tmp->next->value == R_B))
+		{
+			tmp->value = -1;
+			tmp->next->value = -1;
+			tmp = beg_ins;
+		}
+		tmp = tmp->next;
 	}
 }

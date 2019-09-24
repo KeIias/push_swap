@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 17:11:16 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/23 17:11:17 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/24 10:41:05 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,19 +92,22 @@ int		main(int ac, char **av)
 	t_dlist	*beg_b;
 	t_dlist	*beg_ins;
 
-	if (!check_args(ac, av) || ac < 2)
+	if (!check_args(ac, av) || ac < 2 \
+			|| !(beg_a = ft_lst_create_elem(ft_atoi(av[1]))))
 	{
 		write(2, "Error\n", 6);
 		return (0);
 	}
-	beg_a = ft_lst_create_elem(ft_atoi(av[1]));
 	beg_b = NULL;
 	beg_ins = NULL;
 	i = 1;
 	while (++i < ac)
 		ft_lst_push_back(&beg_a, ft_atoi(av[i]));
 	normalize(&beg_a);
-	radix(&beg_a, &beg_b, &beg_ins);
-	//pseudo_quick_sort(&beg_a, &beg_b, &beg_ins);
+	if (ft_lstlen(beg_a) > 50)
+		radix(&beg_a, &beg_b, &beg_ins);
+	else
+		pseudo_quick_sort(&beg_a, &beg_b, &beg_ins);
+	optimize(beg_ins);
 	print_ins(beg_ins);
 }
