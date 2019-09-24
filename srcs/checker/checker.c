@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 17:11:39 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/24 15:00:49 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/24 15:24:04 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,20 @@ int		check_command(char *line)
 	return (1);
 }
 
+void	apply_command(t_dlist **beg_a, t_dlist **beg_b, char *line)
+{
+	!ft_strcmp(line, "sa") || !ft_strcmp(line, "ss") ? ch_swap(beg_a) : 0;
+	!ft_strcmp(line, "sb") || !ft_strcmp(line, "ss") ? ch_swap(beg_b) : 0;
+	!ft_strcmp(line, "pa") ? ch_push(beg_b, beg_a) : 0;
+	!ft_strcmp(line, "pb") ? ch_push(beg_a, beg_b) : 0;
+	!ft_strcmp(line, "ra") || !ft_strcmp(line, "rr") ? ch_rotate(beg_a) : 0;
+	!ft_strcmp(line, "rb") || !ft_strcmp(line, "rr") ? ch_rotate(beg_b) : 0;
+	!ft_strcmp(line, "rra") || !ft_strcmp(line, "rrr")
+		? ch_reverse_rotate(beg_a) : 0;
+	!ft_strcmp(line, "rrb") || !ft_strcmp(line, "rrr")
+		? ch_reverse_rotate(beg_b) : 0;
+}
+
 void	apply_commands(t_dlist **beg_a, t_dlist **beg_b)
 {
 	char	*line;
@@ -37,16 +51,9 @@ void	apply_commands(t_dlist **beg_a, t_dlist **beg_b)
 			free(line);
 			return ;
 		}
-		!ft_strcmp(line, "sa") || !ft_strcmp(line, "ss") ? ch_swap(beg_a) : 0;
-		!ft_strcmp(line, "sb") || !ft_strcmp(line, "ss") ? ch_swap(beg_b) : 0;
-		!ft_strcmp(line, "pa") ? ch_push(beg_b, beg_a) : 0;
-		!ft_strcmp(line, "pb") ? ch_push(beg_a, beg_b) : 0;
-		!ft_strcmp(line, "ra") || !ft_strcmp(line, "rr") ? ch_rotate(beg_a) : 0;
-		!ft_strcmp(line, "rb") || !ft_strcmp(line, "rr") ? ch_rotate(beg_b) : 0;
-		!ft_strcmp(line, "rra") || !ft_strcmp(line, "rrr")
-			? ch_reverse_rotate(beg_a) : 0;
-		!ft_strcmp(line, "rrb") || !ft_strcmp(line, "rrr")
-			? ch_reverse_rotate(beg_b) : 0;
+		apply_command(beg_a, beg_b, line);
+		if (line)
+			free(line);
 	}
 	if (line)
 		free(line);
