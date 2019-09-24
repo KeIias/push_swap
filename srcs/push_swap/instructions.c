@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 13:58:59 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/23 14:55:24 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/24 13:48:33 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ void	ps_push(t_dlist **from, t_dlist **to, t_dlist **beg_ins, int ins)
 	{
 		tmp = *from;
 		ft_lst_push_front(&*to, tmp->value);
-		*from = tmp->next;
+		*from = (*from)->next;
+		if (tmp)
+			free(tmp);
 		ft_lst_push_back(beg_ins, ins);
 	}
 }

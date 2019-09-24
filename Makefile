@@ -6,7 +6,7 @@
 #    By: algautie <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/09/16 15:08:42 by algautie          #+#    #+#              #
-#    Updated: 2019/09/23 14:52:59 by algautie         ###   ########.fr        #
+#    Updated: 2019/09/24 11:24:57 by algautie         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -75,4 +75,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all librm clean fclean re

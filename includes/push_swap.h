@@ -1,5 +1,17 @@
-#ifndef PUSH_SWAP
-# define PUSH_SWAP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/24 11:23:04 by algautie          #+#    #+#             */
+/*   Updated: 2019/09/24 11:23:48 by algautie         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
 # include "../libft/libft.h"
 
@@ -16,7 +28,7 @@ int		check_args(int ac, char **av);
 int		is_sorted(t_dlist *beg);
 int		is_reverse_sorted(t_dlist *beg);
 void	print_ins(t_dlist *beg_ins);
-void	push_all(t_dlist **from, t_dlist **to, t_dlist ** beg_ins, int ins);
+void	push_all(t_dlist **from, t_dlist **to, t_dlist **beg_ins, int ins);
 void	normalize(t_dlist **beg);
 void	pseudo_quick_sort(t_dlist **beg_a, t_dlist **beg_b, t_dlist **beg_ins);
 void	optimize(t_dlist *beg_ins);
