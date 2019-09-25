@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/23 17:11:39 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/24 15:24:04 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/25 15:33:41 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,22 +42,25 @@ void	apply_commands(t_dlist **beg_a, t_dlist **beg_b)
 {
 	char	*line;
 
+	line = NULL;
 	while (get_next_line(0, &line) == 1)
 	{
 		if (!check_command(line))
 		{
 			write(2, "Error\n", 6);
 			get_next_line(0, NULL);
-			free(line);
+			if (line)
+				free(line);
 			return ;
 		}
 		apply_command(beg_a, beg_b, line);
 		if (line)
 			free(line);
 	}
+	get_next_line(0, NULL);
 	if (line)
 		free(line);
-	if (is_sorted(*beg_a) && ft_lstlen(*beg_b) == 0)
+	if (ft_lstlen(*beg_a) > 0 && is_sorted(*beg_a) && ft_lstlen(*beg_b) == 0)
 		ft_putstr("OK\n");
 	else
 		ft_putstr("KO\n");

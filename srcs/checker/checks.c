@@ -6,7 +6,7 @@
 /*   By: algautie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/22 13:58:53 by algautie          #+#    #+#             */
-/*   Updated: 2019/09/23 13:26:15 by algautie         ###   ########.fr       */
+/*   Updated: 2019/09/25 11:39:28 by algautie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int		check_args(int ac, char **av)
 	int i;
 	int *stack;
 
+	stack = NULL;
 	if (!(stack = (int*)malloc(sizeof(int) * (ac - 1))))
 		return (0);
 	i = 0;
@@ -39,14 +40,16 @@ int		check_args(int ac, char **av)
 	{
 		if (!check_word(av[i]))
 		{
-			free(stack);
+			if (stack)
+				free(stack);
 			return (0);
 		}
 		stack[i - 1] = ft_atoi(av[i]);
 	}
 	ft_sort_integer_table(stack, ac - 1);
 	i = ft_issorted(stack, ac - 1);
-	free(stack);
+	if (stack)
+		free(stack);
 	return (i);
 }
 
