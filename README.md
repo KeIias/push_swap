@@ -50,4 +50,10 @@ $> make
 ```
 You can then use push_swap followed by as much numbers as you want as arguments which will constitute the stack to sort. You will then have the list of moves to do in order to solve it.
 
-The checker program takes a stack in the same way as push_swap in arguments. It will then ask for a number of operations in the standard output which will be applied to the stack. Once you close the standard output, checker will tell you if those operations solved the stack or not.
+The checker program takes a stack in the same way as push_swap in arguments. It will then ask for operations in the standard output which will be applied to the stack. Once you close the standard output, checker will tell you if those operations solved the stack or not.
+
+Those programs were built to work with each other, meaning that if you execute: 
+```shell
+./push_swap [your number stack] | ./checker [same number stack] 
+```
+OK will be printed if the algorithm managed to sort your stack.
