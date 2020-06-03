@@ -48,3 +48,6 @@ $> git submodule init
 $> git submodule update
 $> make
 ```
+You can then use push_swap followed by as much numbers as you want as arguments which will constitute the stack to sort. You will then have the list of moves to do in order to solve it.
+
+The checker program takes a stack in the same way as push_swap in arguments. It will then ask for a number of operations in the standard output which will be applied to the stack. Once you close the standard output, checker will tell you if those operations solved the stack or not.
