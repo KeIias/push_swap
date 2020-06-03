@@ -54,6 +54,6 @@ The checker program takes a stack in the same way as push_swap in arguments. It 
 
 Those programs were built to work with each other, meaning that if you execute: 
 ```shell
-./push_swap [your number stack] | ./checker [same number stack] 
+$>./push_swap [your number stack] | ./checker [same number stack] 
 ```
 OK will be printed if the algorithm managed to sort your stack.
